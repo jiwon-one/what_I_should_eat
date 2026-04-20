@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>오늘 뭐먹지?</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="app">
+    <header class="header">
+      <h1 class="title">오늘 뭐먹지?</h1>
+      <p class="subtitle">
+        상황만 입력하면 오늘 먹기 좋은 메뉴를 추천해드려요.
+      </p>
+    </header>
+
+    <main class="main">
+      <section class="input-section" aria-label="상황 입력">
+        <label for="situation-input" class="label">오늘의 상황 · 기분 · 조건</label>
+        <textarea
+          id="situation-input"
+          class="input"
+          rows="3"
+          placeholder="예: 비 오는 날 혼밥 / 매운 거 땡김 / 저녁 가볍게…"
+          maxlength="200"
+        ></textarea>
+        <button type="button" id="recommend-btn" class="btn btn-primary">
+          추천받기
+        </button>
+      </section>
+
+      <!-- 로딩 표시 -->
+      <p id="loading-text" class="loading" hidden aria-live="polite">
+        맛있는 메뉴를 고르고 있어요…
+      </p>
+
+      <!-- 결과 카드 -->
+      <section class="result-section" aria-live="polite" aria-label="추천 결과">
+        <div id="result-card" class="card result-card">
+          <p id="placeholder-text" class="placeholder">
+            상황을 입력하고「추천받기」를 눌러보세요.<br />
+            엔터 키로도 바로 추천할 수 있어요.
+          </p>
+
+          <div id="result-content" class="result-content" hidden>
+            <p class="quote" id="daily-quote"></p>
+            <h2 class="menu-name" id="menu-name"></h2>
+            <p class="menu-reason" id="menu-reason"></p>
+            <div class="alternatives">
+              <span class="alt-label">비슷한 대안</span>
+              <ul class="alt-list" id="alt-list"></ul>
+            </div>
+            <button type="button" id="again-btn" class="btn btn-secondary">
+              다른 메뉴로 다시 추천
+            </button>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <small>데모 버전 · 키워드로 추천합니다</small>
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
